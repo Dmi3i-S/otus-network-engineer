@@ -1,0 +1,78 @@
+version 9.3(10) Bios:version
+hostname Leaf2
+vdc Leaf2 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 128 maximum 128
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature ospf
+
+no password strength-check
+username admin password 5 $5$FJKIMI$drIRDGfWjxrq.5ljSqJItjbGkUtRIwhvjfr/fslLmG0
+ role network-admin
+no ip domain-lookup
+copp profile strict
+snmp-server user admin network-admin auth md5 3752D004B6088CE629D2C0033977F05FED
+66 priv 3308C647BE5C90B437DD9C0B3D2D8D61E323 localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+vlan 1
+
+vrf context management
+
+interface Ethernet1/1
+  description *to_Host2*
+  no switchport
+  ip address 10.4.2.1/30
+  ip router ospf UNDERLAY area 0.0.0.0
+  no shutdown
+
+interface Ethernet1/2
+
+interface Ethernet1/3
+
+interface Ethernet1/4
+
+interface Ethernet1/5
+
+interface Ethernet1/6
+  description *to_Spine1*
+  no switchport
+  ip address 10.2.1.3/31
+  ip ospf network point-to-point
+  ip router ospf UNDERLAY area 0.0.0.0
+  no shutdown
+
+interface Ethernet1/7
+  description *to_Spine2*
+  no switchport
+  ip address 10.2.2.3/31
+  ip ospf network point-to-point
+  ip router ospf UNDERLAY area 0.0.0.0
+  no shutdown
+
+interface mgmt0
+  vrf member management
+
+interface loopback0
+  description RID
+  ip address 10.1.2.1/32
+  ip router ospf UNDERLAY area 0.0.0.0
+icam monitor scale
+
+cli alias name wr copy running-config startup-config
+line console
+line vty
+boot nxos bootflash:/nxos.9.3.10.bin sup-1
+router ospf UNDERLAY
+  router-id 10.1.2.1
+
+!end
