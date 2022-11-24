@@ -15,5 +15,5 @@
 ![Leaf2](Leaf2_config_ISIS.txt)
 - Конфигурация
 ![Leaf3](Leaf3_config_ISIS.txt)
-- Конфигурации клиентов.
+- Конфигурации клиентов
 ![Hosts1-4](Hosts%20config.txt)
