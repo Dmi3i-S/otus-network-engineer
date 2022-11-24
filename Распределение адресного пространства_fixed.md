@@ -1,7 +1,7 @@
 # Распределение адресного пространства в сети CLOS
 | Узел/Хост | Тип интерфейса | Адрес | Description |
 | ----------- | ---------- | -------- | ---------- |
-| Spine1 | Loopback | 10.0.1.1/32 |
+| Spine1 | Loopback 0 | 10.0.1.1/32 |
 |      | p2p | 10.2.1.0/31 | p2p links between Spine1 and Leaf1 |
 |      | p2p | 10.2.1.2/31 | p2p links between Spine1 and Leaf2 |
 |      | p2p | 10.2.1.4/31 | p2p links between Spine1 and Leaf3 |
