@@ -10,10 +10,10 @@
 - Конфигурация
 ![Spine2](Spine2_config_ISIS.txt)
 - Конфигурация
-![Leaf1](Leaf1_config_ISIS.txt)
+![Leaf1](Leaf1_conig_ISIS.txt)
 - Конфигурация
 ![Leaf2](Leaf2_config_ISIS.txt)
 - Конфигурация
 ![Leaf3](Leaf3_config_ISIS.txt)
 - Конфигурации клиентов.
-![Hosts1-4](Hosts config.txt)
+![Hosts1-4](Hosts%20config.txt)
