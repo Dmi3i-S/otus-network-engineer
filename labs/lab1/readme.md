@@ -6,4 +6,4 @@
 - Схема сети
 ![Схема сети](Схема%20Net%20Clos.jpg)
 - Адресное пространство
-![](Spine1_config_ISIS.txt)
+![](https://github.com/Dmi3i-S/otus-network-engineer/blob/main/Распределение%20адресного%20пространства_fixed.md)
