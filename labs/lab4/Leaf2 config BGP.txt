@@ -1,0 +1,100 @@
+Leaf2# sh run
+
+!Command: show running-config
+!Running configuration last done at: Mon Jan  2 23:22:10 2023
+!Time: Wed Jan  4 22:36:54 2023
+
+version 9.3(10) Bios:version  
+hostname Leaf2
+vdc Leaf2 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 128 maximum 128
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature ospf
+feature bgp
+
+no password strength-check
+username admin password 5 $5$MFIJAL$Lhn8u6KRg3V3WyaPFpl5fW5tzlmWJuJ6iXse4FevSFC 
+ role network-admin
+ip domain-lookup
+copp profile strict
+snmp-server user admin network-admin auth md5 5232C100BE22C8E37295EB58387CC34AC9
+52 priv 5206CC01E95480BE7D88B5442C78EE02AD70 localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+vlan 1
+
+route-map REDISTRIBUTE_CONNECTED permit 10
+  match interface loopback0 Ethernet1/1 
+vrf context management
+
+
+interface Ethernet1/1
+  description *to_Host2*
+  no switchport
+  ip address 10.4.2.1/30
+  no shutdown
+
+interface Ethernet1/2
+
+interface Ethernet1/3
+
+interface Ethernet1/4
+
+interface Ethernet1/5
+
+interface Ethernet1/6
+  description *to_Spine1*
+  no switchport
+  ip address 10.2.1.3/31
+  no shutdown
+
+interface Ethernet1/7
+  description *to_Spine2*
+  no switchport
+  ip address 10.2.2.3/31
+  no shutdown
+
+
+interface mgmt0
+  vrf member management
+
+interface loopback0
+  description RID
+  ip address 10.1.2.1/32
+icam monitor scale
+
+cli alias name wr copy running-config startup-config
+line console
+line vty
+boot nxos bootflash:/nxos.9.3.10.bin sup-1
+router bgp 65522
+  router-id 10.1.2.1
+  bestpath as-path multipath-relax
+  reconnect-interval 12
+  address-family ipv4 unicast
+    redistribute direct route-map REDISTRIBUTE_CONNECTED
+    maximum-paths 64
+  neighbor 10.2.1.2
+    remote-as 65520
+    description Spine1
+    timers 3 9
+    address-family ipv4 unicast
+  neighbor 10.2.2.2
+    remote-as 65520
+    description Spine2
+    timers 3 9
+    address-family ipv4 unicast
+
+
+
+Leaf2#  
