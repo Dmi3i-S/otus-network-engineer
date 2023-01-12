@@ -12,10 +12,10 @@
 - Конфигурация
 ![Spine2](Spine2%20config%20BGP.txt)
 - Конфигурация
-![Leaf1](Leaf1 config BGP.txt)
+![Leaf1](Leaf1%20config%20BGP.txt)
 - Конфигурация
-![Leaf2](Leaf2 config BGP.txt)
+![Leaf2](Leaf2%20config%20BGP.txt)
 - Конфигурация
-![Leaf3](Leaf3 config BGP.txt)
+![Leaf3](Leaf3%20config%20BGP.txt)
 - Конфигурации клиентов
 ![Hosts1-4](Hosts%20config.txt)
