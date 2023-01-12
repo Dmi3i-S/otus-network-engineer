@@ -8,9 +8,9 @@
 ![Адресное пространство](https://github.com/Dmi3i-S/otus-network-engineer/blob/main/Распределение%20адресного%20пространства_fixed.md)
 - Файлы с конфигурациями Nexus9K и клиентами:
 - Конфигурация
-![Spine1](Spine1 config BGP.txt)
+![Spine1](Spine1%20config%20BGP.txt)
 - Конфигурация
-![Spine2](Spine2 config BGP.txt)
+![Spine2](Spine2%20config%20BGP.txt)
 - Конфигурация
 ![Leaf1](Leaf1 config BGP.txt)
 - Конфигурация
