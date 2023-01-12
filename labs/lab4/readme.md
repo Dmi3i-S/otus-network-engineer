@@ -18,4 +18,4 @@
 - Конфигурация
 ![Leaf3](Leaf3 config BGP.txt)
 - Конфигурации клиентов
-![Hosts1-4](Hosts config.txt)
+![Hosts1-4](Hosts%20config.txt)
