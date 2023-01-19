@@ -10,9 +10,9 @@
 ![Адресное пространство](Распределение%20адресного%20пространства.md)
 - Файлы с конфигурациями Nexus9K и клиентами:
 - Конфигурация
-![Spine1](Spine1%20config%20BGP.txt)
+![Spine1](Spine1%20config.txt)
 - Конфигурация
-![Spine2](Spine2%20config%20BGP.txt)
+![Spine2](Spine2%20config.txt)
 - Конфигурация
 ![Leaf1](Leaf1%20config%20BGP.txt)
 - Конфигурация
