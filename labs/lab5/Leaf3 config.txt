@@ -25,7 +25,6 @@ feature pbr
 feature interface-vlan
 feature vn-segment-vlan-based
 feature lacp
-feature vpc
 feature lldp
 feature nv overlay
 
@@ -126,6 +125,7 @@ router bgp 65523
     address-family ipv4 unicast
 evpn
   vni 10000 l2
+    rd auto
     route-target import auto
     route-target export auto
 
