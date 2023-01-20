@@ -25,7 +25,6 @@ feature pbr
 feature interface-vlan
 feature vn-segment-vlan-based
 feature lacp
-feature vpc
 feature lldp
 feature nv overlay
 
