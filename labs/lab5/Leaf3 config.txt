@@ -1,8 +1,8 @@
-
+Leaf3# sh run
 
 !Command: show running-config
-!Running configuration last done at: Fri Jan 20 22:16:17 2023
-!Time: Fri Jan 20 22:16:18 2023
+!Running configuration last done at: Sun Jan 22 21:25:23 2023
+!Time: Sun Jan 22 21:48:42 2023
 
 version 9.3(10) Bios:version  
 hostname Leaf3
@@ -44,7 +44,7 @@ vlan 100
   vn-segment 10000
 
 route-map REDISTRIBUTE_CONNECTED permit 10
-  match interface loopback0 
+  match interface loopback0 loopback1 
 vrf context management
 
 
@@ -53,7 +53,7 @@ interface Vlan1
 interface nve1
   no shutdown
   host-reachability protocol bgp
-  source-interface loopback0
+  source-interface loopback1
   member vni 10000
     ingress-replication protocol bgp
 
@@ -222,15 +222,11 @@ router bgp 65523
     maximum-paths 64
   template peer SPINE_OVERLAY
     remote-as 65520
-    update-source loopback0
+    update-source loopback1
     ebgp-multihop 2
     address-family l2vpn evpn
       send-community
       send-community extended
-  neighbor 10.0.1.1
-    inherit peer SPINE_OVERLAY
-  neighbor 10.0.2.1
-    inherit peer SPINE_OVERLAY
   neighbor 10.2.1.4
     remote-as 65520
     description Spine1
@@ -241,15 +237,14 @@ router bgp 65523
     description Spine2
     timers 3 9
     address-family ipv4 unicast
+  neighbor 10.10.1.1
+    inherit peer SPINE_OVERLAY
+  neighbor 10.10.2.1
+    inherit peer SPINE_OVERLAY
 evpn
   vni 10000 l2
-    rd auto
+    rd 10.11.3.1:10000
     route-target import auto
     route-target export auto
 
-
-!
-
-
-!end
-!end
+no logging console
