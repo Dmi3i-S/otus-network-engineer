@@ -1,6 +1,8 @@
+Spine1# sh run
+
 !Command: show running-config
-!Running configuration last done at: Fri Jan 20 22:11:54 2023
-!Time: Fri Jan 20 22:11:55 2023
+!Running configuration last done at: Sun Jan 22 21:42:49 2023
+!Time: Sun Jan 22 21:46:45 2023
 
 version 9.3(10) Bios:version  
 hostname Spine1
@@ -27,10 +29,12 @@ feature lldp
 feature nv overlay
 
 no password strength-check
-username admin password 5 $5$AFJEOO$Pz6ticJxNnc.v8jO3O0mRxJmfjOThK0bVp7tFptGc00  role network-admin
+username admin password 5 $5$AFJEOO$Pz6ticJxNnc.v8jO3O0mRxJmfjOThK0bVp7tFptGc00 
+ role network-admin
 ip domain-lookup
 copp profile strict
-snmp-server user admin network-admin auth md5 056E882A928BFB8DD1B5AF2889017DCE194C priv 167EAD0FA5F8FFF1F58A9C3FC1492EB21A14 localizedV2key
+snmp-server user admin network-admin auth md5 056E882A928BFB8DD1B5AF2889017DCE19
+4C priv 167EAD0FA5F8FFF1F58A9C3FC1492EB21A14 localizedV2key
 rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
 rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
 rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
@@ -40,7 +44,7 @@ rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
 vlan 1
 
 route-map REDISTRIBUTE_CONNECTED permit 10
-  match interface loopback0 
+  match interface loopback0 loopback1 
 vrf context management
 
 
@@ -240,9 +244,4 @@ router bgp 65520
     inherit peer LEAF_OVERLAY
     remote-as 65523
 
-
-!
-
-
-!end
-!end
+no logging console
