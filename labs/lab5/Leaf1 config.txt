@@ -1,8 +1,8 @@
-
+Leaf1# sh run
 
 !Command: show running-config
-!Running configuration last done at: Fri Jan 20 22:15:58 2023
-!Time: Fri Jan 20 22:15:59 2023
+!Running configuration last done at: Sun Jan 22 21:31:00 2023
+!Time: Sun Jan 22 21:44:57 2023
 
 version 9.3(10) Bios:version  
 hostname Leaf1
@@ -45,7 +45,7 @@ vlan 100
   vn-segment 10000
 
 route-map REDISTRIBUTE_CONNECTED permit 10
-  match interface loopback0 
+  match interface loopback0 loopback1 
 vrf context management
 
 
@@ -242,13 +242,8 @@ router bgp 65521
     inherit peer SPINE_OVERLAY
 evpn
   vni 10000 l2
-    rd auto
+    rd 10.11.1.1:10000
     route-target import auto
     route-target export auto
 
-
-!
-
-
-!end
-!end
+no logging console
