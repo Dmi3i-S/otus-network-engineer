@@ -1,8 +1,8 @@
 Leaf2# sh run
 
 !Command: show running-config
-!Running configuration last done at: Sun Jan 22 21:23:51 2023
-!Time: Sun Jan 22 21:47:10 2023
+!Running configuration last done at: Mon Jan 23 13:32:15 2023
+!Time: Mon Jan 23 13:35:48 2023
 
 version 9.3(10) Bios:version  
 hostname Leaf2
@@ -29,10 +29,12 @@ feature lldp
 feature nv overlay
 
 no password strength-check
-username admin password 5 $5$MFIJAL$Lhn8u6KRg3V3WyaPFpl5fW5tzlmWJuJ6iXse4FevSFC  role network-admin
+username admin password 5 $5$MFIJAL$Lhn8u6KRg3V3WyaPFpl5fW5tzlmWJuJ6iXse4FevSFC 
+ role network-admin
 ip domain-lookup
 copp profile strict
-snmp-server user admin network-admin auth md5 5232C100BE22C8E37295EB58387CC34AC952 priv 5206CC01E95480BE7D88B5442C78EE02AD70 localizedV2key
+snmp-server user admin network-admin auth md5 5232C100BE22C8E37295EB58387CC34AC9
+52 priv 5206CC01E95480BE7D88B5442C78EE02AD70 localizedV2key
 rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
 rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
 rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
@@ -203,7 +205,7 @@ interface loopback0
   ip address 10.1.2.1/32
 
 interface loopback1
-  description OVERLAY
+  description EVPN
   ip address 10.11.2.1/32
 icam monitor scale
 
@@ -220,11 +222,15 @@ router bgp 65522
     maximum-paths 64
   template peer SPINE_OVERLAY
     remote-as 65520
-    update-source loopback1
+    update-source loopback0
     ebgp-multihop 2
     address-family l2vpn evpn
       send-community
       send-community extended
+  neighbor 10.0.1.1
+    inherit peer SPINE_OVERLAY
+  neighbor 10.0.2.1
+    inherit peer SPINE_OVERLAY
   neighbor 10.2.1.2
     remote-as 65520
     description Spine1
@@ -235,10 +241,6 @@ router bgp 65522
     description Spine2
     timers 3 9
     address-family ipv4 unicast
-  neighbor 10.10.1.1
-    inherit peer SPINE_OVERLAY
-  neighbor 10.10.2.1
-    inherit peer SPINE_OVERLAY
 evpn
   vni 10000 l2
     rd 10.11.2.1:10000
@@ -246,3 +248,6 @@ evpn
     route-target export auto
 
 no logging console
+
+
+Leaf2#    
