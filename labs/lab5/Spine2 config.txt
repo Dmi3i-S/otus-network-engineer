@@ -1,8 +1,8 @@
 Spine2# sh run
 
 !Command: show running-config
-!Running configuration last done at: Mon Jan 23 13:15:49 2023
-!Time: Mon Jan 23 13:21:10 2023
+!Running configuration last done at: Tue Jan 24 07:42:16 2023
+!Time: Tue Jan 24 07:46:43 2023
 
 version 9.3(10) Bios:version  
 hostname Spine2
@@ -29,12 +29,10 @@ feature lldp
 feature nv overlay
 
 no password strength-check
-username admin password 5 $5$BLOPOO$9Wpt00oUQE42gkzqcX2LyUv/xLo6mGK0gJnNEQ0zEc4 
- role network-admin
+username admin password 5 $5$BLOPOO$9Wpt00oUQE42gkzqcX2LyUv/xLo6mGK0gJnNEQ0zEc4  role network-admin
 ip domain-lookup
 copp profile strict
-snmp-server user admin network-admin auth md5 367B2E535321DC32549DD1BB1B9834673D
-92 priv 204A3E4D41238F6308EEC8A119DA377777CE localizedV2key
+snmp-server user admin network-admin auth md5 367B2E535321DC32549DD1BB1B9834673D92 priv 204A3E4D41238F6308EEC8A119DA377777CE localizedV2key
 rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
 rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
 rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
@@ -43,6 +41,8 @@ rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
 
 vlan 1
 
+route-map NEXT-HOP-UNCHANGED permit 10
+  set ip next-hop unchanged
 route-map REDISTRIBUTE_CONNECTED permit 10
   match interface loopback0 
 vrf context management
@@ -217,6 +217,7 @@ router bgp 65520
     address-family l2vpn evpn
       send-community
       send-community extended
+      route-map NEXT-HOP-UNCHANGED out
   neighbor 10.1.1.1
     inherit peer LEAF_OVERLAY
     remote-as 65521
