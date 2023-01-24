@@ -1,8 +1,8 @@
 Leaf3# sh run
 
 !Command: show running-config
-!Running configuration last done at: Mon Jan 23 12:50:51 2023
-!Time: Mon Jan 23 13:37:05 2023
+!Running configuration last done at: Tue Jan 24 07:47:17 2023
+!Time: Tue Jan 24 07:57:21 2023
 
 version 9.3(10) Bios:version  
 hostname Leaf3
@@ -29,12 +29,10 @@ feature lldp
 feature nv overlay
 
 no password strength-check
-username admin password 5 $5$IEIEBE$QCigi12AP8sTGMTuXOWTJGo4lfqraV78fFwOOzZz6Z9 
- role network-admin
+username admin password 5 $5$IEIEBE$QCigi12AP8sTGMTuXOWTJGo4lfqraV78fFwOOzZz6Z9  role network-admin
 ip domain-lookup
 copp profile strict
-snmp-server user admin network-admin auth md5 164E323B4E9FC6F21ACC517EC3D1529952
-EE priv 5305564105AC96A312D2434E4208C40416AB localizedV2key
+snmp-server user admin network-admin auth md5 164E323B4E9FC6F21ACC517EC3D1529952EE priv 5305564105AC96A312D2434E4208C40416AB localizedV2key
 rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
 rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
 rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
@@ -222,6 +220,8 @@ router bgp 65523
   address-family ipv4 unicast
     redistribute direct route-map REDISTRIBUTE_CONNECTED
     maximum-paths 64
+  address-family l2vpn evpn
+    retain route-target all
   template peer SPINE_OVERLAY
     remote-as 65520
     update-source loopback0
@@ -252,4 +252,4 @@ evpn
 no logging console
 
 
-Leaf3#       
+Leaf3#
