@@ -22,4 +22,4 @@
 - Конфигурации клиентов
 ![Hosts1-4](Hosts%20config.txt)
 - Вывод команды show bgp l2vpn evpn
-!(show%20bgp%20l2vpn%20evpn.txt)
+![show bgp l2vpn evpn](show%20bgp%20l2vpn%20evpn.txt)
