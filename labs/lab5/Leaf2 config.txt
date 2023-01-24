@@ -1,8 +1,8 @@
 Leaf2# sh run
 
 !Command: show running-config
-!Running configuration last done at: Mon Jan 23 13:32:15 2023
-!Time: Mon Jan 23 13:35:48 2023
+!Running configuration last done at: Tue Jan 24 07:48:17 2023
+!Time: Tue Jan 24 07:54:32 2023
 
 version 9.3(10) Bios:version  
 hostname Leaf2
@@ -29,12 +29,10 @@ feature lldp
 feature nv overlay
 
 no password strength-check
-username admin password 5 $5$MFIJAL$Lhn8u6KRg3V3WyaPFpl5fW5tzlmWJuJ6iXse4FevSFC 
- role network-admin
+username admin password 5 $5$MFIJAL$Lhn8u6KRg3V3WyaPFpl5fW5tzlmWJuJ6iXse4FevSFC  role network-admin
 ip domain-lookup
 copp profile strict
-snmp-server user admin network-admin auth md5 5232C100BE22C8E37295EB58387CC34AC9
-52 priv 5206CC01E95480BE7D88B5442C78EE02AD70 localizedV2key
+snmp-server user admin network-admin auth md5 5232C100BE22C8E37295EB58387CC34AC952 priv 5206CC01E95480BE7D88B5442C78EE02AD70 localizedV2key
 rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
 rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
 rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
@@ -220,6 +218,8 @@ router bgp 65522
   address-family ipv4 unicast
     redistribute direct route-map REDISTRIBUTE_CONNECTED
     maximum-paths 64
+  address-family l2vpn evpn
+    retain route-target all
   template peer SPINE_OVERLAY
     remote-as 65520
     update-source loopback0
@@ -250,4 +250,4 @@ evpn
 no logging console
 
 
-Leaf2#    
+Leaf2#
