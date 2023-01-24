@@ -126,21 +126,7 @@ Neighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
 10.0.2.1        4 65520    1204    1213       90    0    0 19:29:57 3         
 Leaf3# 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+______________________________________________________________________________________
 Spine1# sh bgp l2vpn evpn 
 BGP routing table information for VRF default, address family L2VPN EVPN
 BGP table version is 71, Local Router ID is 10.0.1.1
