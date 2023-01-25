@@ -1,0 +1,76 @@
+﻿Leaf1# sh nve peers
+Interface Peer-IP                                 State LearnType Uptime   Route
+r-Mac       
+--------- --------------------------------------  ----- --------- -------- -----
+------------
+nve1      10.11.2.1                               Up    CP        00:29:25 n/a  
+            
+nve1      10.11.3.1                               Up    CP        00:27:32 n/a  
+            
+
+Leaf1# sh mac address-table 
+Legend: 
+        * - primary entry, G - Gateway MAC, (R) - Routed MAC, O - Overlay MAC
+        age - seconds since last seen,+ - primary entry using vPC Peer-Link,
+        (T) - True, (F) - False, C - ControlPlane MAC, ~ - vsan
+   VLAN     MAC Address      Type      age     Secure NTFY Ports
+---------+-----------------+--------+---------+------+----+------------------
+*  100     0050.7966.6806   dynamic  0         F      F    Eth1/1
+C  100     0050.7966.6807   dynamic  0         F      F    nve1(10.11.2.1)
+C  100     0050.7966.6808   dynamic  0         F      F    nve1(10.11.3.1)
+C  100     0050.7966.6809   dynamic  0         F      F    nve1(10.11.3.1)
+G    -     5003.0000.1b08   static   -         F      F    sup-eth1(R)
+Leaf1# 
+
+____________________________________________________________
+
+Leaf2# sh nve peers
+Interface Peer-IP                                 State LearnType Uptime   Route
+r-Mac       
+--------- --------------------------------------  ----- --------- -------- -----
+------------
+nve1      10.11.1.1                               Up    CP        00:30:18 n/a  
+            
+nve1      10.11.3.1                               Up    CP        00:28:32 n/a  
+            
+
+Leaf2# sh mac address-table 
+Legend: 
+        * - primary entry, G - Gateway MAC, (R) - Routed MAC, O - Overlay MAC
+        age - seconds since last seen,+ - primary entry using vPC Peer-Link,
+        (T) - True, (F) - False, C - ControlPlane MAC, ~ - vsan
+   VLAN     MAC Address      Type      age     Secure NTFY Ports
+---------+-----------------+--------+---------+------+----+------------------
+C  100     0050.7966.6806   dynamic  0         F      F    nve1(10.11.1.1)
+*  100     0050.7966.6807   dynamic  0         F      F    Eth1/1
+C  100     0050.7966.6808   dynamic  0         F      F    nve1(10.11.3.1)
+C  100     0050.7966.6809   dynamic  0         F      F    nve1(10.11.3.1)
+G    -     5004.0000.1b08   static   -         F      F    sup-eth1(R)
+Leaf2# 
+_______________________________________________________________
+Leaf3# show nve peers
+Interface Peer-IP                                 State LearnType Uptime   Route
+r-Mac       
+--------- --------------------------------------  ----- --------- -------- -----
+------------
+nve1      10.11.1.1                               Up    CP        00:29:20 n/a  
+            
+nve1      10.11.2.1                               Up    CP        00:29:20 n/a  
+            
+
+Leaf3# sh mac address-table 
+Legend: 
+        * - primary entry, G - Gateway MAC, (R) - Routed MAC, O - Overlay MAC
+        age - seconds since last seen,+ - primary entry using vPC Peer-Link,
+        (T) - True, (F) - False, C - ControlPlane MAC, ~ - vsan
+   VLAN     MAC Address      Type      age     Secure NTFY Ports
+---------+-----------------+--------+---------+------+----+------------------
+C  100     0050.7966.6806   dynamic  0         F      F    nve1(10.11.1.1)
+C  100     0050.7966.6807   dynamic  0         F      F    nve1(10.11.2.1)
+*  100     0050.7966.6808   dynamic  0         F      F    Eth1/1
+*  100     0050.7966.6809   dynamic  0         F      F    Eth1/2
+G    -     5005.0000.1b08   static   -         F      F    sup-eth1(R)
+Leaf3# 
+
+__________________________________________________________________________
+
