@@ -246,8 +246,8 @@ router bgp 65523
 evpn
   vni 10000 l2
     rd 10.11.3.1:10000
-    route-target import auto
-    route-target export auto
+    route-target import 10.4.1.1:10000
+    route-target export 10.4.1.1:10000
 
 no logging console
 
