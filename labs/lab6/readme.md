@@ -10,15 +10,15 @@
 ![Адресное пространство](Распределение%20адресного%20пространства.md)
 - Файлы с конфигурациями Nexus9K и клиентами:
 - Конфигурация
-![Spine1](Spine1%20config.txt)
+![Spine1](Spine1_config.txt)
 - Конфигурация
-![Spine2](Spine2%20config.txt)
+![Spine2](Spine2_config.txt)
 - Конфигурация
-![Leaf1](Leaf1%20config.txt)
+![Leaf1](Leaf1_config.txt)
 - Конфигурация
-![Leaf2](Leaf2%20config.txt)
+![Leaf2](Leaf2_config.txt)
 - Конфигурация
-![Leaf3](Leaf3%20config.txt)
+![Leaf3](Leaf3_config.txt)
 - Конфигурации клиентов
 ![Hosts1-4](Hosts%20config.txt)
 - Результаты диагностики
