@@ -20,6 +20,7 @@ vrf context PROD
   rd 10.11.1.1:9900 (для leaf1), 10.11.2.1(для leaf2), 10.11.3.1 (для leaf3)
   address-family ipv4 unicast
     route-target both 9900:9900
+    route-target both 9900:9900 evpn
 
 interface Vlan99
 no shutdown
