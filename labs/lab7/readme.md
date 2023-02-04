@@ -21,6 +21,6 @@
 - Конфигурация
 ![Leaf3](Leaf3_config.txt)
 - Конфигурации клиентов
-![Hosts1-4](Hosts%20config.txt)
+![Hosts2-3](Hosts.txt)
 - Результаты диагностики
 ![Вывод команд](Diagnostic.txt)
