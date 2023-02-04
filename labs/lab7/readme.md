@@ -20,6 +20,8 @@
 ![Leaf2](Leaf2_config.txt)
 - Конфигурация
 ![Leaf3](Leaf3_config.txt)
+- Конфигурация клиента
+![Host1](Host1_config.txt)
 - Конфигурации клиентов
 ![Hosts2-3](Hosts.txt)
 - Результаты диагностики
