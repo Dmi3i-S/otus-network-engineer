@@ -26,5 +26,5 @@
 ![Host1](Host1_config.txt)
 - Конфигурации клиентов
 ![Hosts2-3](Hosts.txt)
-- Результаты диагностики
-![Вывод команд](Diagnostic.txt)
+- Результаты диагностики VPC
+![Вывод команд](Diagnostic_vpc.txt)
