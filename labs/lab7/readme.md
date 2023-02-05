@@ -37,3 +37,5 @@
 ![Hosts2-3](Hosts.txt)
 - Результаты диагностики VPC
 ![Вывод команд](Diagnostic%20vpc.txt)
+- Результаты диагностики BGP и EVPN
+![Вывод команд](Diagnostic%20BGP.txt)
