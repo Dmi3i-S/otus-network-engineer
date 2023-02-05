@@ -4,6 +4,14 @@
 - Подключите клиентов 2-я линками к различным Leaf.
 - Настроите агрегированный канал со стороны клиента.
 - Настроите VPC для работы в Overlay сети.
+### Порядок работы:
+- За основу использована схема сети из lab6. VxLAN 2.
+- Leaf1 и Leaf2 подключены с помощью VPC. 
+- Leaf2 переведен в bgp AS 65521.
+- В качестве клиента Host1 использован коммутатор, подключен через агрегированный канал LACP к Leaf1 и Leaf2.
+- Добавлен ip address 10.111.1.1/32 secondary в Loopback1 на Leaf1 и Leaf2.
+- В interface nve1 добавлена команда advertise virtual-rmac на Leaf1 и Leaf2.
+- В router bgp 65521, в address-family l2vpn evpn добавлена команда advertise-pip на Leaf1 и Leaf2.
 ### Результат:
 - Схема сети с VPC.
 ![Схема сети с VPC](Схема%20VXLAN%20с%20VPC.jpg)
