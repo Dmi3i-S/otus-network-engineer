@@ -14,6 +14,8 @@
 ![Spine1](Spine1_config.txt)
 - Конфигурация
 ![Spine2](Spine2_config.txt)
+- Конфигурация VPC
+![для Leaf1 и Leaf2](vpc_config.txt)
 - Конфигурация
 ![Leaf1](Leaf1_config.txt)
 - Конфигурация
