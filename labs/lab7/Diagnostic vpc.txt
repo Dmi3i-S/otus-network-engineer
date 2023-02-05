@@ -1,0 +1,141 @@
+Leaf1# show vpc peer-keepalive
+
+vPC keep-alive status             : peer is alive                 
+--Peer is alive for             : (2871) seconds, (936) msec
+--Send status                   : Success 
+--Last send at                  : 2023.02.05 23:17:30 181 ms
+--Sent on interface             : Eth1/5
+--Receive status                : Success
+--Last receive at               : 2023.02.05 23:17:30 377 ms
+--Received on interface         : Eth1/5
+--Last update from peer         : (0) seconds, (554) msec
+
+vPC Keep-alive parameters
+--Destination                   : 172.16.1.2
+--Keepalive interval            : 1000 msec
+--Keepalive timeout             : 5 seconds
+--Keepalive hold timeout        : 3 seconds
+--Keepalive vrf                 : KEEPALIVE
+--Keepalive udp port            : 3200
+--Keepalive tos                 : 192
+Leaf1# sh vpc role
+
+vPC Role status
+----------------------------------------------------
+vPC role                        : primary, operational secondary
+Dual Active Detection Status    : 0
+vPC system-mac                  : 00:23:04:ee:be:65             
+vPC system-priority             : 32667
+vPC local system-mac            : 50:03:00:00:1b:08             
+vPC local role-priority         : 50  
+vPC local config role-priority  : 50  
+vPC peer system-mac             : 50:04:00:00:1b:08             
+vPC peer role-priority          : 150 
+vPC peer config role-priority   : 150 
+Leaf1# sh vpc
+Legend:
+                (*) - local vPC is down, forwarding via vPC peer-link
+
+vPC domain id                     : 101 
+Peer status                       : peer adjacency formed ok      
+vPC keep-alive status             : peer is alive                 
+Configuration consistency status  : success 
+Per-vlan consistency status       : success                       
+Type-2 consistency status         : success 
+vPC role                          : primary, operational secondary
+Number of vPCs configured         : 1   
+Peer Gateway                      : Enabled
+Dual-active excluded VLANs        : -
+Graceful Consistency Check        : Enabled
+Auto-recovery status              : Disabled
+Delay-restore status              : Timer is off.(timeout = 10s)
+Delay-restore SVI status          : Timer is off.(timeout = 10s)
+Operational Layer3 Peer-router    : Enabled
+Virtual-peerlink mode             : Disabled
+
+vPC Peer-link status
+---------------------------------------------------------------------
+id    Port   Status Active vlans    
+--    ----   ------ -------------------------------------------------
+1     Po111  up     1,99-100                                                    
+         
+
+vPC status
+----------------------------------------------------------------------------
+Id    Port          Status Consistency Reason                Active vlans
+--    ------------  ------ ----------- ------                ---------------
+1     Po1           up     success     success               100   
+
+
+
+________________________________________________________________________________________
+
+Leaf2# show vpc peer-keepalive
+
+vPC keep-alive status             : peer is alive                 
+--Peer is alive for             : (3004) seconds, (750) msec
+--Send status                   : Success 
+--Last send at                  : 2023.02.05 23:18:03 141 ms
+--Sent on interface             : Eth1/5
+--Receive status                : Success
+--Last receive at               : 2023.02.05 23:18:02 998 ms
+--Received on interface         : Eth1/5
+--Last update from peer         : (0) seconds, (736) msec
+
+vPC Keep-alive parameters
+--Destination                   : 172.16.1.1
+--Keepalive interval            : 1000 msec
+--Keepalive timeout             : 5 seconds
+--Keepalive hold timeout        : 3 seconds
+--Keepalive vrf                 : KEEPALIVE
+--Keepalive udp port            : 3200
+--Keepalive tos                 : 192
+Leaf2# sh vpc role
+
+vPC Role status
+----------------------------------------------------
+vPC role                        : secondary, operational primary
+Dual Active Detection Status    : 0
+vPC system-mac                  : 00:23:04:ee:be:65             
+vPC system-priority             : 32667
+vPC local system-mac            : 50:04:00:00:1b:08             
+vPC local role-priority         : 150 
+vPC local config role-priority  : 150 
+vPC peer system-mac             : 50:03:00:00:1b:08             
+vPC peer role-priority          : 50  
+vPC peer config role-priority   : 50  
+Leaf2# sh vpc
+Legend:
+                (*) - local vPC is down, forwarding via vPC peer-link
+
+vPC domain id                     : 101 
+Peer status                       : peer adjacency formed ok      
+vPC keep-alive status             : peer is alive                 
+Configuration consistency status  : success 
+Per-vlan consistency status       : success                       
+Type-2 consistency status         : success 
+vPC role                          : secondary, operational primary
+Number of vPCs configured         : 1   
+Peer Gateway                      : Enabled
+Dual-active excluded VLANs        : -
+Graceful Consistency Check        : Enabled
+Auto-recovery status              : Disabled
+Delay-restore status              : Timer is off.(timeout = 10s)
+Delay-restore SVI status          : Timer is off.(timeout = 10s)
+Operational Layer3 Peer-router    : Enabled
+Virtual-peerlink mode             : Disabled
+
+vPC Peer-link status
+---------------------------------------------------------------------
+id    Port   Status Active vlans    
+--    ----   ------ -------------------------------------------------
+1     Po111  up     1,99-100                                                    
+         
+
+vPC status
+----------------------------------------------------------------------------
+Id    Port          Status Consistency Reason                Active vlans
+--    ------------  ------ ----------- ------                ---------------
+1     Po1           up     success     success               100                
+         
+                                                                                
