@@ -27,4 +27,4 @@
 - Конфигурации клиентов
 ![Hosts2-3](Hosts.txt)
 - Результаты диагностики VPC
-![Вывод команд](Diagnostic_vpc.txt)
+![Вывод команд](Diagnostic%20vpc.txt)
