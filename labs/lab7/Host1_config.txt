@@ -1,9 +1,9 @@
 Host1#sh run
 Building configuration...
 
-Current configuration : 1107 bytes
+Current configuration : 1160 bytes
 !
-! Last configuration change at 23:48:56 UTC Sat Feb 4 2023
+! Last configuration change at 18:49:44 UTC Mon Feb 6 2023
 !
 version 15.2
 service timestamps debug datetime msec
@@ -79,6 +79,7 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
+ip route 0.0.0.0 0.0.0.0 10.4.1.1
 !
 !
 !
@@ -91,8 +92,8 @@ line con 0
  logging synchronous
 line aux 0
 line vty 0 4
-!
 !         
+!
 end
 
-Host1#
+Host1# 
