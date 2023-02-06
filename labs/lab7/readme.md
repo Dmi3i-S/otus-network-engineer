@@ -40,3 +40,5 @@
 ![Вывод команд](Diagnostic%20vpc.txt)
 - Результаты диагностики BGP и EVPN
 ![Вывод команд](Diagnostic%20BGP.txt)
+- Результаты диагностики PING
+![Вывод команд](Diagnostic%20ping.txt)
