@@ -6,9 +6,10 @@
 - Настроите VPC для работы в Overlay сети.
 ### Порядок работы:
 - За основу использована схема сети из lab6. VxLAN 2.
-- Конфигурации Spine1, Spine2, Leaf3 остались без изменений.
+- Конфигурация Leaf3 осталась без изменений.
 - Leaf1 и Leaf2 подключены с помощью VPC. 
 - Leaf2 переведен в bgp AS 65521.
+- В конфигурациях Spine1 и Spine2 в neighbor заменены remote-as 65522 на remote-as 65521. 
 - В качестве клиента Host1 использован коммутатор, подключен через агрегированный канал LACP к Leaf1 и Leaf2.
 - Добавлен ip address 10.111.1.1/32 secondary в Loopback1 на Leaf1 и Leaf2.
 - В interface nve1 добавлена команда advertise virtual-rmac на Leaf1 и Leaf2.
