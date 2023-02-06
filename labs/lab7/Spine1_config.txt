@@ -221,7 +221,7 @@ router bgp 65520
     remote-as 65521
   neighbor 10.1.2.1
     inherit peer LEAF_OVERLAY
-    remote-as 65522
+    remote-as 65521
   neighbor 10.1.3.1
     inherit peer LEAF_OVERLAY
     remote-as 65523
@@ -231,7 +231,7 @@ router bgp 65520
     timers 3 9
     address-family ipv4 unicast
   neighbor 10.2.1.3
-    remote-as 65522
+    remote-as 65521
     description Leaf2
     timers 3 9
     address-family ipv4 unicast
