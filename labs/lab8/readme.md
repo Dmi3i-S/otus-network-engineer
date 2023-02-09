@@ -20,7 +20,7 @@
 - Конфигурация
 ![Leaf2](Leaf2_config.txt)
 - Конфигурация
-![Leaf3](Leaf3_config.txt)
+![BorderLeaf](BorderLeaf_config.txt)
 - Конфигурации клиентов
 ![Hosts1-4](Hosts1-4_config.txt)
 - Результаты диагностики BGP и EVPN
