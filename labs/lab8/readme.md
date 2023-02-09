@@ -22,7 +22,7 @@
 - Конфигурация
 ![Leaf3](Leaf3_config.txt)
 - Конфигурации клиентов
-![Hosts](Hosts.txt)
+![Hosts1-4](Hosts1-4_config.txt)
 - Результаты диагностики BGP и EVPN
 ![Вывод команд](Diagnostic%20BGP.txt)
 - Результаты диагностики PING
