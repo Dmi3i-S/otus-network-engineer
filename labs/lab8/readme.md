@@ -23,6 +23,8 @@
 ![Leaf2](Leaf2_config.txt)
 - Конфигурация
 ![BorderLeaf](BorderLeaf_config.txt)
+- Конфигурация
+![FireWall](FireWall_config.txt)
 - Конфигурации клиентов
 ![Hosts1-4](Hosts1-4_config.txt)
 - Результаты диагностики BGP и EVPN
