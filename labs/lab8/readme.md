@@ -27,7 +27,7 @@
 ![FireWall](FireWall_config.txt)
 - Конфигурации клиентов
 ![Hosts1-4](Hosts1-4_config.txt)
-- Результаты диагностики BGP и EVPN
-![Вывод команд](Diagnostic%20BGP.txt)
-- Результаты диагностики PING
-![Вывод команд](Diagnostic%20ping.txt)
+- Результаты диагностики BGP neighbors
+![Вывод команд](Diagnostic_BGP_neighbors.txt)
+- Результаты диагностики BGP Route 
+![Вывод команд](Diagnostic_BGP_route.txt)
