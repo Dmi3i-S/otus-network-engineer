@@ -1,8 +1,8 @@
 BorderLeaf# sh run
 
 !Command: show running-config
-!Running configuration last done at: Sun Feb 12 23:55:38 2023
-!Time: Mon Feb 13 00:04:00 2023
+!Running configuration last done at: Mon Feb 13 23:52:36 2023
+!Time: Tue Feb 14 00:09:03 2023
 
 version 9.3(10) Bios:version  
 hostname BorderLeaf
@@ -52,8 +52,20 @@ route-map REDISTRIBUTE_CONNECTED permit 10
   match interface loopback0 loopback1 
 vrf context AA
   vni 10000
+  rd 10.11.3.1:10000
+  address-family ipv4 unicast
+    route-target import 10000:10000
+    route-target import 10000:10000 evpn
+    route-target export 10000:10000
+    route-target export 10000:10000 evpn
 vrf context BB
   vni 20000
+  rd 10.11.3.1:20000
+  address-family ipv4 unicast
+    route-target import 20000:20000
+    route-target import 20000:20000 evpn
+    route-target export 20000:20000
+    route-target export 20000:20000 evpn
 vrf context management
 
 
@@ -76,7 +88,6 @@ interface nve1
   host-reachability protocol bgp
   source-interface loopback1
   member vni 10000
-    ingress-replication protocol bgp
   member vni 20000
     ingress-replication protocol bgp
 
@@ -278,11 +289,15 @@ router bgp 65523
     timers 3 9
     address-family ipv4 unicast
   vrf AA
+    address-family ipv4 unicast
+      aggregate-address 10.4.2.0/24 summary-only
     neighbor 10.2.3.2
       remote-as 65523.65523
       local-as 65523.1 no-prepend replace-as
       address-family ipv4 unicast
   vrf BB
+    address-family ipv4 unicast
+      aggregate-address 10.4.2.0/24 summary-only
     neighbor 10.2.3.6
       remote-as 65523.65523
       local-as 65523.2 no-prepend replace-as
