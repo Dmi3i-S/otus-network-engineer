@@ -31,3 +31,5 @@
 ![Вывод команд](Diagnostic_BGP_neighbors.txt)
 - Результаты диагностики BGP Route 
 ![Вывод команд](Diagnostic_BGP_route.txt)
+- Результаты диагностики BorderLeaf
+![Вывод команд](Diagnostic_BorderLeaf.txt)
