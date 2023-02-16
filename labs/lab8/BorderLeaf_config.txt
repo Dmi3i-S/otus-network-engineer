@@ -91,6 +91,7 @@ interface nve1
   host-reachability protocol bgp
   source-interface loopback1
   member vni 10000
+    ingress-replication protocol bgp
   member vni 20000
     ingress-replication protocol bgp
 
