@@ -33,3 +33,7 @@
 ![Вывод команд](Diagnostic_BGP_route.txt)
 - Результаты диагностики BorderLeaf
 ![Вывод команд](Diagnostic_BorderLeaf.txt)
+- Результаты диагностики c клиентов Host1 и 2
+![Вывод команд](Diagnostic%20from%20Host1-2.txt)
+- Результаты диагностики c клиентов Host3 и 4
+![Вывод команд](Diagnostic%20from%20Host3-4.txt)
