@@ -1,8 +1,8 @@
 BorderLeaf# sh run
 
 !Command: show running-config
-!Running configuration last done at: Tue Feb 14 22:32:25 2023
-!Time: Tue Feb 14 22:37:20 2023
+!Running configuration last done at: Fri Feb 17 15:39:50 2023
+!Time: Fri Feb 17 15:51:34 2023
 
 version 9.3(10) Bios:version  
 hostname BorderLeaf
@@ -42,11 +42,17 @@ rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
 rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
 
 fabric forwarding anycast-gateway-mac 0000.2222.3333
-vlan 1,100,200
+vlan 1,100,200,900,902
 vlan 100
   vn-segment 10000
 vlan 200
   vn-segment 20000
+vlan 900
+  name L3VNI-AA
+  vn-segment 9000
+vlan 902
+  name L3VNI-BB
+  vn-segment 9020
 
 ip prefix-list 1 seq 5 permit 10.0.0.0/8 le 32 
 route-map PERMIT_ALL permit 10
@@ -54,21 +60,21 @@ route-map PERMIT_ALL permit 10
 route-map REDISTRIBUTE_CONNECTED permit 10
   match interface loopback0 loopback1 
 vrf context AA
-  vni 10000
-  rd 10.11.3.1:10000
+  vni 9000
+  rd 10.11.3.1:9000
   address-family ipv4 unicast
-    route-target import 10000:10000
-    route-target import 10000:10000 evpn
-    route-target export 10000:10000
-    route-target export 10000:10000 evpn
+    route-target import 9000:9000
+    route-target import 9000:9000 evpn
+    route-target export 9000:9000
+    route-target export 9000:9000 evpn
 vrf context BB
-  vni 20000
-  rd 10.11.3.1:20000
+  vni 9020
+  rd 10.11.3.1:9020
   address-family ipv4 unicast
-    route-target import 20000:20000
-    route-target import 20000:20000 evpn
-    route-target export 20000:20000
-    route-target export 20000:20000 evpn
+    route-target import 9020:9020
+    route-target import 9020:9020 evpn
+    route-target export 9020:9020
+    route-target export 9020:9020 evpn
 vrf context management
 
 
@@ -86,10 +92,26 @@ interface Vlan200
   ip address 10.4.2.1/24
   fabric forwarding mode anycast-gateway
 
+interface Vlan900
+  no shutdown
+  vrf member AA
+  no ip redirects
+  ip forward
+  no ipv6 redirects
+
+interface Vlan902
+  no shutdown
+  vrf member BB
+  no ip redirects
+  ip forward
+  no ipv6 redirects
+
 interface nve1
   no shutdown
   host-reachability protocol bgp
   source-interface loopback1
+  member vni 9000 associate-vrf
+  member vni 9020 associate-vrf
   member vni 10000
     ingress-replication protocol bgp
   member vni 20000
@@ -323,4 +345,4 @@ evpn
 no logging console
 
 
-BorderLeaf# 
+BorderLeaf#
